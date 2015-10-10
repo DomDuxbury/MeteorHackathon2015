@@ -5,7 +5,7 @@ Router.configure({
 
 Router.map(function () {
   this.route('surprise');
-  this.route('Test');
+  this.route('test');
   this.route('home', {
     path: '/',  //overrides the default '/home'
   });
