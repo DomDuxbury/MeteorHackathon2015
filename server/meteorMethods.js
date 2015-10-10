@@ -1,5 +1,5 @@
 Meteor.methods({
-  method: function (arg1, arg2) {
-  	
+  testMethod: function () {
+    getHarryPotterBooks();
   }
 });
