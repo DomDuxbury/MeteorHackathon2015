@@ -1,14 +1,17 @@
-@HomePageBase:#BADA55;
+@HomePageBase:#F7941D;
+@HomePageSuperLight: lighten(@HomePageBase, 90%);
 
 /*Landing page Banner START*/
 .landing-banner
 {
 
 	background-color: @HomePageBase;
+	min-height: 100vh;
 
 	.landing-image
 	{
-		margin: 0 auto;
+		margin: 25px auto;
+		max-width: 500px;
 	}
 
 	.landing-content
@@ -18,5 +21,24 @@
 
 
 }
-
 /*Landing Page Banner END*/
+
+/*How it works START*/
+.how
+{
+
+	background-color: @HomePageSuperLight;
+	min-height: 100vh;
+
+	.landing-image
+	{
+		margin: 25px auto;
+		max-width: 500px;
+	}
+
+	.landing-content
+	{
+		text-align: center;
+	}
+
+}
