@@ -2,28 +2,11 @@
   <title>MeteorHackathon2015</title>
 </head>
 
-<body>
-  <h1>Welcome to Surprise Me!</h1>
-</body>
-
-<template name="navBar">
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">Home</a>
-    </div>
-    <div>
-      <ul class="nav navbar-nav">
-        <li><a href="/Surprise">Surprise</a></li> 
-        <li><a href="/Test">Test</a></li> 
-      </ul>
-    </div>
-  </div>
-</nav>
-</template>
-
 <template name="layout">
   {{> navBar}}
+    <body>
+      <h1>Welcome to Surprise Me!</h1>
+    </body>
   {{> yield}}
 </template>
 
