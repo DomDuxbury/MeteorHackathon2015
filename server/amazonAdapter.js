@@ -1,7 +1,8 @@
 var util = Npm.require('util')
 var OperationHelper = apac.OperationHelper;
 
-getHarryPotterBooks = function() {
+getHarryPotterBooks = function(AWSAccessKeyId, AWSSecretKey, assocId) {
+  console.log(Meteor.settings.AWSAccessKeyId);
   var opHelper = new OperationHelper({
   awsId:     Meteor.settings.AWSAccessKeyId,
   awsSecret: Meteor.settings.AWSSecretKey,
@@ -21,7 +22,12 @@ getHarryPotterBooks = function() {
     'Keywords': 'harry potter',
     'ResponseGroup': 'ItemAttributes,Offers'
   }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
-      console.log(results);
+
+      console.log(results.ItemSearchResponse.Items[0].Item);
   });
+
+}
+
+doNothing = function() {
 
 }
