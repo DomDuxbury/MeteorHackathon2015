@@ -9,7 +9,7 @@ if (Meteor.isClient) {
   });
 
   Template.hello.events({
-    'click button': function () {
+    'click .test-button': function () {
       // increment the counter when button is clicked
        Meteor.call('testMethod');
     }
