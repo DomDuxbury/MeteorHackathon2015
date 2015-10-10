@@ -20,6 +20,8 @@ getHarryPotterBooks = function(AWSAccessKeyId, AWSSecretKey, assocId) {
   opHelper.execute('ItemSearch', {
     'SearchIndex': 'Books',
     'Keywords': 'harry potter',
+    'MinimumPrice': 4,
+    'MaximumPrice': 4,
     'ResponseGroup': 'ItemAttributes,Offers'
   }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
 
