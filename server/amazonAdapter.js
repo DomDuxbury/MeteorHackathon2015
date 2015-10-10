@@ -1,4 +1,4 @@
-var util = require('util'),
+/*var util = require('util'),
     OperationHelper = require('apac').OperationHelper;
  
 var opHelper = new OperationHelper({
@@ -20,4 +20,4 @@ opHelper.execute('ItemSearch', {
   'ResponseGroup': 'ItemAttributes,Offers'
 }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
     console.log(results);
-});
+});*/
