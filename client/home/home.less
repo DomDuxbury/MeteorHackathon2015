@@ -19,50 +19,38 @@
 {
 	
 	background-color: @HomePageSuperLight;
-	min-height: 100vh;
+	min-height: 150vh;
 	position: relative;
-
-	.Bubble1
+	background-image: url('images/sm-lower-bg-cloud.jpg');
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+	.Cloud1
 	{
+		z-index: 5;
 		position: absolute;
-		max-width: 20%;
 		width: 100%;
-		top: 0px;
-		left:0px;
+
 	}
 
-	.Bubble2
+	.Cloud2
 	{
+		z-index: 3;
 		position: absolute;
-		max-width: 20%;
 		width: 100%;
-		top: 0px;
-		left:80%;
+
 	}
 
-	.Bubble3
-	{
-		position: absolute;
-		max-width: 20%;
-		width: 100%;
-		bottom: 0px;
-		left:80%;
-	}
 
-	.Bubble4
-	{
-		position: absolute;
-		max-width: 20%;
-		width: 100%;
-		bottom: 0px;
-		left:0px;
-	}
 
 	.landing-image
 	{
+		z-index: 4;
 		margin: 25px auto;
 		max-width: 500px;
 		height: 400px;
+		margin-top: 150px;
 	}
 
 	.landing-content
@@ -70,7 +58,6 @@
 		text-align: center;
 	}
 
-	.UpShadow
 }
 /*Landing Page Banner END*/
 
@@ -116,6 +103,11 @@
 			max-height: 400px;
    			margin: 0 auto;
 		}
+	}
+
+	.HowCloud
+	{
+		width: 100%;
 	}
 
 }
