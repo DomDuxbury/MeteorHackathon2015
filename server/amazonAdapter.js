@@ -14,17 +14,38 @@ function initAmazon() {
   return opHelper;
 }
 
-function createCart(offers) {
+function sleep(ms) {
+    var future = new Future();
+    setTimeout(function() {
+        future.return();
+    }, ms);
+    future.wait();
+}
+
+createCart = function(offers) {
   opHelper = initAmazon();
+  offerJson = createOfferJson(offers);
+  console.log(offerJson)
   var amazonSearchFuture = new Future();
-  opHelper.execute('CartCreate', {
-    'Item.1.OfferListingId': randomCategory,
-    'Item.1.Quantity' : 1
-      }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
-      amazonSearchFuture.return(results.ItemSearchResponse.Items[0].Item);
+  opHelper.execute('CartCreate', offerJson, 
+    function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
+      amazonSearchFuture.return(JSON.stringify(results));
   });
   results = amazonSearchFuture.wait();
   return results;
+}
+
+function createOfferJson(offers) {
+  var jsonData = {};
+  var cartPosition = 1;
+  offers.forEach(function(offer) {
+  	var ItemOfferListingIdName = "Item." + cartPosition + ".OfferListingId";
+  	var ItemQuantityName = "Item." + cartPosition + ".Quantity";
+  	jsonData[ItemOfferListingIdName] = offer.OfferListingId[0];
+  	jsonData[ItemQuantityName] = 1;
+    cartPosition++;
+  });
+  return jsonData;
 }
 
 getRandomItemsOfPrice = function(price) {
@@ -34,6 +55,7 @@ getRandomItemsOfPrice = function(price) {
   randomTitle = createRandomTitle();
 
   var amazonSearchFuture = new Future();
+  sleep(500);
   opHelper.execute('ItemSearch', {
     'SearchIndex': randomCategory,
     'Title': randomTitle,

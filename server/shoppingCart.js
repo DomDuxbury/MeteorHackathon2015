@@ -16,6 +16,11 @@ createShoppingCart = function(totalPrice) {
   console.log(shoppingCart.length)
   console.log(numberOfItems);
   console.log(totalPrice);
+  cart = createCart(shoppingCart)
+  if (cart != null) {
+    cartId = cart.CartCreateResponse.Cart[0].PurchaseURL[0];
+    console.log(cartId);
+  }  
 }
 
 function getRandomShoppingCartBreakDown(numberOfItems, totalPrice) {
@@ -61,6 +66,14 @@ getSingleItemOfPrice = function(price) {
   }
   //console.log(JSON.stringify(chosenItem));
   return chosenItem;
+}
+
+function timeOutFunction(items, price) {
+  items = getRandomItemsOfPrice(price);
+    if(items != null) {
+      chosenItem = filterItems(items, price);
+    }
+    attemptCount++;
 }
 
 filterItems = function(items, price) {
