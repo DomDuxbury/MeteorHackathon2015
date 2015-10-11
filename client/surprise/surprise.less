@@ -8,7 +8,7 @@
     background-size: cover;
     background-repeat: no-repeat;
 	position: relative;
-	height:90vh;
+	height:100vh;
 
 	
 	.btn-default
@@ -33,5 +33,24 @@
 		width: 100%;
 		position: absolute;
 
+	}
+
+	.ClickMe
+	{
+		width: 100px;
+		margin: 0 auto;
+
+		.claim-prize-image
+		{
+			width: 100px;
+			height: 100px;
+			background-image: url("/images/ClickMeImage.jpg");
+			background-size: cover;
+
+			&:hover
+			{
+				background-image: url("/images/ClickMeImageHover.jpg");
+			}
+		}
 	}
 }
