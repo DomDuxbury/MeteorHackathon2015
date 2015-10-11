@@ -14,17 +14,13 @@ function initAmazon() {
   return opHelper;
 }
 
-function createCart(items) {
+function createCart(offers) {
   opHelper = initAmazon();
-  
   var amazonSearchFuture = new Future();
   opHelper.execute('CartCreate', {
-    'SearchIndex': randomCategory,
-    'Title': randomTitle,
-    'MinimumPrice': price,
-    'MaximumPrice': price,
-    'ResponseGroup': 'ItemAttributes,Offers,OfferFull'
-  }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
+    'Item.1.OfferListingId': randomCategory,
+    'Item.1.Quantity' : 1
+      }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
       amazonSearchFuture.return(results.ItemSearchResponse.Items[0].Item);
   });
   results = amazonSearchFuture.wait();
@@ -41,9 +37,10 @@ getRandomItemsOfPrice = function(price) {
   opHelper.execute('ItemSearch', {
     'SearchIndex': randomCategory,
     'Title': randomTitle,
-    'MinimumPrice': price,
+    'MinimumPrice': price-5,
     'MaximumPrice': price,
-    'ResponseGroup': 'ItemAttributes,Offers,OfferFull'
+    'ResponseGroup': 'ItemAttributes,Offers,OfferFull',
+    'MerchantId' : 'Amazon'
   }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js
     if (results.ItemSearchResponse != null) {
       amazonSearchFuture.return(results.ItemSearchResponse.Items[0].Item);
