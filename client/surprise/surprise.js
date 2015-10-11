@@ -25,6 +25,7 @@ Template.surprise.events({
       	positiveFormFeedback.text("Loading...");
       	NProgress.start();
       	Meteor.call('createShoppingCart', inputValue*100, function(error, result) {
+      	  claimPrizeImage.show();
       	  claimPrizeImage = $('.claim-prize-image');
       	  claimPrizeImage.attr("href", result);
       	  positiveFormFeedback.text("Sucess! Your request has been processed! Click on the box below to claim your surprise");
