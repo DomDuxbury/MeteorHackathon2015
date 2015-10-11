@@ -1,22 +1,27 @@
-var util = Npm.require('util')
+var util = Npm.require('util');
+Future = Npm.require('fibers/future');
 var OperationHelper = apac.OperationHelper;
 
 getRandomItemOfPrice = function(price) {
   console.log(Meteor.settings.AWSAccessKeyId);
   opHelper = initAmazon();
+
   randomCategory = Random.choice(Meteor.settings.ukCategories);
-  console.log(randomCategory);
+  randomTitle = createRandomTitle();
+
+  console.log(randomTitle);
+  var amazonSearchFuture = new Future();
   opHelper.execute('ItemSearch', {
     'SearchIndex': randomCategory,
-    'Title': 'a',
+    'Title': randomTitle,
     'MinimumPrice': price,
     'MaximumPrice': price,
     'ResponseGroup': 'ItemAttributes,Offers,OfferFull'
   }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
-
-      console.log(JSON.stringify(results.ItemSearchResponse.Items[0].Item));
+      amazonSearchFuture.return(results.ItemSearchResponse.Items[0].Item);
   });
-
+  results = amazonSearchFuture.wait();
+  return results;
 }
 
 function initAmazon() {
@@ -29,4 +34,15 @@ function initAmazon() {
   });
   //opHelper.setEndpoint("http://webservices.amazon.co.uk/onca/xml");
   return opHelper;
+}
+
+function createRandomTitle() {
+	alphabetArray = createAlphabetArray();
+	return Random.choice(alphabetArray) + Random.choice(alphabetArray);
+}
+
+function createAlphabetArray() {
+  var abc = (function(){var output = []; for(var i='A'.charCodeAt(0); i <= 'Z'.charCodeAt(0); i++)
+    output.push(String.fromCharCode(i)); return output;})()
+  return abc;
 }
