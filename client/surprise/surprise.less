@@ -1,0 +1,36 @@
+@HomePageBase:#ff8c24;
+@HomePageLight: lighten(@HomePageBase, 10%);
+@HomePageSuperLight: lighten(@HomePageBase, 100%);
+
+.surprise-form
+{
+	background-color: @HomePageSuperLight;
+	color: #fff;
+	border-top: 50px solid @HomePageSuperLight;
+	border-bottom: 50px solid @HomePageSuperLight;
+	position: relative;
+	
+	.btn-default
+	{
+			color: white;
+			font-size: 25px;
+		    width: 100%;
+		    background-color: @HomePageBase;
+		    border-radius: 10px;
+		    border:10px solid @HomePageLight;
+
+		    &:hover
+		    {
+		    	background-color:darken(@HomePageBase,10%);
+		    	border:10px solid darken(@HomePageLight,10%);
+		    	color: white;
+		    }
+	}
+
+	.try-cloud-bot
+	{
+		width: 100%;
+		position: absolute;
+
+	}
+}
