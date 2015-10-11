@@ -2,6 +2,14 @@
 @HomePageLight: lighten(@HomePageBase, 10%);
 @HomePageSuperLight: lighten(@HomePageBase, 100%);
 
+.Alerts
+{
+		background-color: white;
+		border-color: black;
+		border-width: 3px;
+}
+
+
 .surprise-form
 {
 	background-image: url('/images/Surprise.jpg');
@@ -53,4 +61,15 @@
 			}
 		}
 	}
+
+	.positive-form-feedback
+	{
+		.Alerts
+	}
+
+	.negative-form-feedback
+	{
+		.Alerts
+	}
+
 }
