@@ -8,3 +8,5 @@ Settings.json file required with format :-
 }
 
 run with meteor run --settings settings.json
+
+(C) Copyright 2010 AllenDuxburySolutions
