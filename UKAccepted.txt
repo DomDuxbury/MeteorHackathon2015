@@ -1,23 +1,27 @@
 Baby 
-Beauty
-Books
-CDs & Vinyl 
-Car & Motorbike 
+Beauty 
+Books 
+Music 
+Automotive 
 Classical 
-Clothing 
-Computers 
-DIY & Tools 
-DVD & Blu-ray 
-Electronics & Photo
-Garden & Outdoors 
-Gift Cards
+Apparel 
+PCHardware 
+Tools 
+DVD 
+Electronics 
+HomeGarden 
+GiftCards 
 Grocery 
-Health & Personal Care
-Kitchen & Home 
-Large Appliances 
+HealthPersonalCare 
+Kitchen 
+Appliances 
 Lighting 
 Luggage 
-Musical Instruments & DJ
-PC & Video Games
-Pet Supplies 
-Shoes & Bags 
+MusicalInstruments 
+VideoGames 
+PetSupplies 
+Shoes 
+Software 
+OfficeProducts 
+Toys 
+VHS 
