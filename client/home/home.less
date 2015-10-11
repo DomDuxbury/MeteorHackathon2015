@@ -5,12 +5,12 @@
 
 .UpShadow
 {
-   box-shadow: inset 0 -7px 25px -7px rgba(0,0,0,0.4);
+   box-shadow: inset 0 -30px 45px -25px rgba(0,0,0,0.4);
 }
 
 .DownShadow
 {
-	box-shadow: inset 0 7px 25px -7px rgba(0,0,0,0.7);
+	box-shadow: inset 0 30px 45px -25px rgba(0,0,0,0.7);
 }
 
 
@@ -20,6 +20,43 @@
 	
 	background-color: @HomePageSuperLight;
 	min-height: 100vh;
+	position: relative;
+
+	.Bubble1
+	{
+		position: absolute;
+		max-width: 20%;
+		width: 100%;
+		top: 0px;
+		left:0px;
+	}
+
+	.Bubble2
+	{
+		position: absolute;
+		max-width: 20%;
+		width: 100%;
+		top: 0px;
+		left:80%;
+	}
+
+	.Bubble3
+	{
+		position: absolute;
+		max-width: 20%;
+		width: 100%;
+		bottom: 0px;
+		left:80%;
+	}
+
+	.Bubble4
+	{
+		position: absolute;
+		max-width: 20%;
+		width: 100%;
+		bottom: 0px;
+		left:0px;
+	}
 
 	.landing-image
 	{
