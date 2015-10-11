@@ -20,14 +20,17 @@
 {
 	
 	background-color: @HomePageSuperLight;
-	min-height: 150vh;
+	min-height: 130vh;
 	position: relative;
 	background-image: url('images/sm-lower-bg-cloud.jpg');
-  -webkit-background-size: cover;
+	background-size: cover;
+	    background-repeat: no-repeat;
+    background-position: center top;
+/*  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  background-position: center 0;
+  background-position: center 0;*/
 	.Cloud1
 	{
 		z-index: 5;
@@ -58,6 +61,25 @@
 	.landing-content
 	{
 		text-align: center;
+	}
+
+	.top-button
+	{
+	
+			color: white;
+			font-size: 25px;
+		    width: 100%;
+		    background-color: @HomePageBase;
+		    border-radius: 10px;
+		    border:10px solid @HomePageLight;
+
+		    &:hover
+		    {
+		    	background-color:darken(@HomePageBase,10%);
+		    	border:10px solid darken(@HomePageLight,10%);
+		    	color: white;
+		    }
+	
 	}
 
 }
