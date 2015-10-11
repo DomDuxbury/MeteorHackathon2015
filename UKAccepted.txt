@@ -4,7 +4,6 @@ Books
 Music 
 Automotive 
 Classical 
-Apparel 
 PCHardware 
 Tools 
 DVD 
@@ -20,8 +19,6 @@ Luggage
 MusicalInstruments 
 VideoGames 
 PetSupplies 
-Shoes 
-Software 
 OfficeProducts 
 Toys 
 VHS 
