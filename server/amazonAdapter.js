@@ -2,28 +2,6 @@ var util = Npm.require('util');
 Future = Npm.require('fibers/future');
 var OperationHelper = apac.OperationHelper;
 
-getRandomItemOfPrice = function(price) {
-  console.log(Meteor.settings.AWSAccessKeyId);
-  opHelper = initAmazon();
-
-  randomCategory = Random.choice(Meteor.settings.ukCategories);
-  randomTitle = createRandomTitle();
-
-  console.log(randomTitle);
-  var amazonSearchFuture = new Future();
-  opHelper.execute('ItemSearch', {
-    'SearchIndex': randomCategory,
-    'Title': randomTitle,
-    'MinimumPrice': price,
-    'MaximumPrice': price,
-    'ResponseGroup': 'ItemAttributes,Offers,OfferFull'
-  }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
-      amazonSearchFuture.return(results.ItemSearchResponse.Items[0].Item);
-  });
-  results = amazonSearchFuture.wait();
-  return results;
-}
-
 function initAmazon() {
   var opHelper = new OperationHelper({
   awsId:     Meteor.settings.AWSAccessKeyId,
@@ -36,9 +14,50 @@ function initAmazon() {
   return opHelper;
 }
 
+function createCart(items) {
+  opHelper = initAmazon();
+  
+  var amazonSearchFuture = new Future();
+  opHelper.execute('CartCreate', {
+    'SearchIndex': randomCategory,
+    'Title': randomTitle,
+    'MinimumPrice': price,
+    'MaximumPrice': price,
+    'ResponseGroup': 'ItemAttributes,Offers,OfferFull'
+  }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
+      amazonSearchFuture.return(results.ItemSearchResponse.Items[0].Item);
+  });
+  results = amazonSearchFuture.wait();
+  return results;
+}
+
+getRandomItemsOfPrice = function(price) {
+  opHelper = initAmazon();
+
+  randomCategory = Random.choice(Meteor.settings.ukCategories);
+  randomTitle = createRandomTitle();
+
+  var amazonSearchFuture = new Future();
+  opHelper.execute('ItemSearch', {
+    'SearchIndex': randomCategory,
+    'Title': randomTitle,
+    'MinimumPrice': price,
+    'MaximumPrice': price,
+    'ResponseGroup': 'ItemAttributes,Offers,OfferFull'
+  }, function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js
+    if (results.ItemSearchResponse != null) {
+      amazonSearchFuture.return(results.ItemSearchResponse.Items[0].Item);
+    } else {
+      amazonSearchFuture.return([]);
+    }
+  });
+  results = amazonSearchFuture.wait();
+  return results;
+}
+
 function createRandomTitle() {
 	alphabetArray = createAlphabetArray();
-	return Random.choice(alphabetArray) + Random.choice(alphabetArray);
+	return Random.choice(alphabetArray);
 }
 
 function createAlphabetArray() {
