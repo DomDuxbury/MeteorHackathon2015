@@ -2,7 +2,7 @@ createShoppingCart = function(totalPrice) {
   shoppingCart = [];
   var attemptCount = 0;
   while (totalPrice > 50 && attemptCount < 5 && shoppingCart.length < 20) {
-  	numberOfItems = Math.floor(Math.log(totalPrice)*2) + 1;
+  	numberOfItems = Math.floor(getBaseLog(7, totalPrice)) + 1;
     var shoppingCartBreakDown = getRandomShoppingCartBreakDown(numberOfItems,totalPrice);
     shoppingCartBreakDown.forEach(function(number) {
       if (number > 50) {
@@ -22,7 +22,12 @@ createShoppingCart = function(totalPrice) {
   if (cart.CartCreateResponse != null) {
     cartId = cart.CartCreateResponse.Cart[0].PurchaseURL[0];
     console.log(cartId);
+    return cartId;
   }  
+}
+
+function getBaseLog(x, y) {
+  return Math.log(y) / Math.log(x);
 }
 
 function getRandomShoppingCartBreakDown(numberOfItems, totalPrice) {

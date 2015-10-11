@@ -25,3 +25,4 @@ accounts-password
 random
 accounts-ui
 liangcc:meteor-accounts-amazon
+mrt:nprogress
