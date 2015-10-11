@@ -1,4 +1,5 @@
 @HomePageBase:#ff8c24;
+@HomePageLight: lighten(@HomePageBase, 10%);
 @HomePageSuperLight: lighten(@HomePageBase, 100%);
 
 
@@ -14,18 +15,24 @@
 }
 
 
+
+
 /*Landing page Banner START*/
 .landing-banner
 {
 	
 	background-color: @HomePageSuperLight;
-	min-height: 150vh;
+	min-height: 130vh;
 	position: relative;
 	background-image: url('images/sm-lower-bg-cloud.jpg');
-  -webkit-background-size: cover;
+	background-size: cover;
+	    background-repeat: no-repeat;
+    background-position: center top;
+/*  -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  background-position: center 0;*/
 	.Cloud1
 	{
 		z-index: 5;
@@ -34,13 +41,7 @@
 
 	}
 
-	.Cloud2
-	{
-		z-index: 3;
-		position: absolute;
-		width: 100%;
 
-	}
 
 
 
@@ -58,6 +59,25 @@
 		text-align: center;
 	}
 
+	.top-button
+	{
+	
+			color: white;
+			font-size: 25px;
+		    width: 100%;
+		    background-color: @HomePageBase;
+		    border-radius: 10px;
+		    border:10px solid @HomePageLight;
+
+		    &:hover
+		    {
+		    	background-color:darken(@HomePageBase,10%);
+		    	border:10px solid darken(@HomePageLight,10%);
+		    	color: white;
+		    }
+	
+	}
+
 }
 /*Landing Page Banner END*/
 
@@ -68,7 +88,6 @@
 	background-color: @HomePageBase;
 	color: #fff;
 	border-top: 50px solid @HomePageBase;
-	border-bottom: 50px solid @HomePageBase;
 	
 	.HowGlyph
 	{
@@ -125,6 +144,7 @@
 	{
 		margin: 25px auto;
 		max-width: 500px;
+		max-width: 100%;
 	}
 
 	.try-title
@@ -136,7 +156,6 @@
 	{
 
 	}
-	.DownShadow
 }
 
 
@@ -144,10 +163,11 @@
 .try-button
 {
 
-	background-color: @HomePageBase;
+	background-color: @HomePageSuperLight;
 	color: #fff;
-	border-top: 50px solid @HomePageBase;
-	border-bottom: 50px solid @HomePageBase;
+	border-top: 50px solid @HomePageSuperLight;
+	border-bottom: 50px solid @HomePageSuperLight;
+	position: relative;
 	
 	.btn-default
 	{
@@ -156,13 +176,21 @@
 		    width: 100%;
 		    background-color: @HomePageBase;
 		    border-radius: 10px;
-		    border:10px solid white;
+		    border:10px solid @HomePageLight;
 
-		    :active
+		    &:hover
 		    {
 		    	background-color:darken(@HomePageBase,10%);
-		    	border:10px solid white;
+		    	border:10px solid darken(@HomePageLight,10%);
+		    	color: white;
 		    }
+	}
+
+	.try-cloud-bot
+	{
+		width: 100%;
+		position: absolute;
+
 	}
 }
 /*Try it out  END*/
@@ -170,8 +198,8 @@
 /*Try it out START*/
 .footer
 {
-
-	background-color: @HomePageSuperLight;
+	margin-top: 100px;
+	background-color: @HomePageBase;
 	
 
 	.landing-image
@@ -188,6 +216,11 @@
 	.footer-content
 	{
 
+	}
+
+	.footer-link
+	{
+		color: white;
 	}
 }
 /*Try it out  END*/
