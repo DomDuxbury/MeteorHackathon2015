@@ -1,4 +1,4 @@
-@HomePageBase:#F7941D;
+@HomePageBase:#ff8c24;
 @HomePageSuperLight: lighten(@HomePageBase, 100%);
 
 
@@ -126,7 +126,7 @@
 {
 
 	background-color: @HomePageSuperLight;
-	min-height: 100vh;
+
 	
 
 	.landing-image
@@ -145,6 +145,33 @@
 
 	}
 	.DownShadow
+}
+
+
+/*Try button*/
+.try-button
+{
+
+	background-color: @HomePageBase;
+	color: #fff;
+	border-top: 50px solid @HomePageBase;
+	border-bottom: 50px solid @HomePageBase;
+	
+	.btn-default
+	{
+			color: white;
+			font-size: 25px;
+		    width: 100%;
+		    background-color: @HomePageBase;
+		    border-radius: 10px;
+		    border:10px solid white;
+
+		    :active
+		    {
+		    	background-color:darken(@HomePageBase,10%);
+		    	border:10px solid white;
+		    }
+	}
 }
 /*Try it out  END*/
 
