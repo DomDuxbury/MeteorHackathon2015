@@ -29,9 +29,10 @@ createCart = function(offers) {
   var amazonSearchFuture = new Future();
   opHelper.execute('CartCreate', offerJson, 
     function(err, results) { // you can add a third parameter for the raw xml response, "results" here are currently parsed using xml2js 
-      amazonSearchFuture.return(JSON.stringify(results));
+      amazonSearchFuture.return(results);
   });
   results = amazonSearchFuture.wait();
+  console.log(JSON.stringify(results));
   return results;
 }
 
@@ -55,7 +56,7 @@ getRandomItemsOfPrice = function(price) {
   randomTitle = createRandomTitle();
 
   var amazonSearchFuture = new Future();
-  sleep(500);
+  sleep(1000);
   opHelper.execute('ItemSearch', {
     'SearchIndex': randomCategory,
     'Title': randomTitle,
