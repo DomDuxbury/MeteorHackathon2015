@@ -1,5 +1,5 @@
 Meteor.methods({
   testMethod: function () {
-    getRandomItemOfPriceAndCategory("Books", 500);
+    getRandomItemOfPrice("Books", 500);
   }
 });
