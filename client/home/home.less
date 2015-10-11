@@ -68,7 +68,6 @@
 	background-color: @HomePageBase;
 	color: #fff;
 	border-top: 50px solid @HomePageBase;
-	border-bottom: 50px solid @HomePageBase;
 	
 	.HowGlyph
 	{
@@ -136,7 +135,6 @@
 	{
 
 	}
-	.DownShadow
 }
 
 
@@ -144,10 +142,11 @@
 .try-button
 {
 
-	background-color: @HomePageBase;
+	background-color: @HomePageSuperLight;
 	color: #fff;
-	border-top: 50px solid @HomePageBase;
-	border-bottom: 50px solid @HomePageBase;
+	border-top: 50px solid @HomePageSuperLight;
+	border-bottom: 50px solid @HomePageSuperLight;
+	position: relative;
 	
 	.btn-default
 	{
@@ -164,13 +163,20 @@
 		    	border:10px solid white;
 		    }
 	}
+
+	.try-cloud-bot
+	{
+		width: 100%;
+		position: absolute;
+
+	}
 }
 /*Try it out  END*/
 
 /*Try it out START*/
 .footer
 {
-
+	margin-top: 100px;
 	background-color: @HomePageSuperLight;
 	
 
